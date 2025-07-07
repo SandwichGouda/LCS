@@ -1,0 +1,1158 @@
+\documentclass{report}
+
+
+
+\usepackage[french]{babel}
+
+\usepackage{parskip}
+\usepackage{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{dsfont}
+\usepackage{stmaryrd}
+\usepackage{esint}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage{color}
+\usepackage{mathdots}
+\usepackage{ulem}
+\usepackage{cancel}
+
+\usepackage{accents}
+
+
+%%%% PEIGNE FIN TUTO SDZ PR AVOIR TOUT 
+%%%% S gothique (et autres) mathfrak ? (doivent etre inclus dans la table polices maths (A arrongi, L endomorph/laplace tho)
+%%%% tA (transposée) expôsant à gauche ?
+%%%% a° avec un point au dessus comme l'intérieur ? 
+%%%% layout thing ; llbrackets piur ensmeble des entiers ?
+
+
+
+
+\begin{document}
+
+%\textwidth = 690pt
+
+\newgeometry{right = 0in, top = 1.2in}
+
+\section*{Symboles} %%%% ------------------------------------------------- SYMBOLES ------------------------------------------------- %%%%
+
+\begin{tabular}{ll}
+
+
+Exposants $ x^{n} $
+&
+{\fontfamily{qcr}\selectfont
+ x\string^\{n\}
+}
+\\
+
+
+Racines $ \sqrt[n]{x} $
+&
+{\fontfamily{qcr}\selectfont
+ \textbackslash{}sqrt[n]\{x\}
+}
+\\
+
+Limites $ \lim_{x \to +\infty} \quad \displaystyle{\lim_{x \to \infty}} $
+&
+{\fontfamily{qcr}\selectfont
+	\textbackslash{}lim\_\{x \textbackslash{}to +\textbackslash{}infty\} \quad \textbackslash{}displaystyle\{ ... \}
+}
+\\
+
+$ \xrightarrow[dessous]{dessus} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}xrightarrow[dessous]\{dessus\}
+}
+\\
+
+$ \displaystyle{f(x) \longrightarrow_{x \to +\infty}l} $
+&
+\\
+
+Sommes $ \sum_{k=1}^{n} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}sum\_\{k=1\}\string^\{n\} \quad \textbackslash{}displaystyle\{ ... \}
+}
+\\
+
+
+Produits $ \prod_{i=1}^{n} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}prod\_\{i=1\}\string^\{n\} \quad \textbackslash{}displaystyle\{ ... \}
+}
+\\
+
+Union/inter. $ \bigcup_{i=1}^{n} \bigcap_{i=1}^{n} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}bigcup\_\{i=1\}\string^\{n\} \quad ...cap... \quad \textbackslash{}displaystyle\{ ... \}
+}
+\\
+
+Bigoplus $ \bigoplus_{k=1}^{n} \bigotimes $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}bigoplus\_\{i=1\}\string^\{n\} \quad \textbackslash{}displaystyle\{ ... \}
+}
+\\
+
+Intégrales $ \int $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}int
+}
+\\
+
+Avec bornes $ \int_{a}^{b} blabladx $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}int\_\{a\}\string^\{b\}
+}
+\\
+
+Avec bornes hautes $ \int \limits_{a}^{b} blabladx $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}int \textbackslash{}limits\_\{a\}\string^\{b\}
+}
+\\
+
+Intégrales multiples $ \iint_{S} \iiint_{V} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}iint\_\{S\} \textbackslash{}iiint\_\{V\}
+}
+\\
+
+Sur un contour fermé $ \oint $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}oint
+}
+\\
+
+Grandes parenthèses
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}left( \textbackslash{}right)
+}
+\\
+
+\textbf{Autres grands trucs}
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}left\textbackslash{}lfloor \textbackslash{}right\textbackslash{}rfloor \textbackslash{}left\textbackslash{}langle \textbackslash{}right\textbackslash{}rangle
+}
+\\
+
+Valeurs absolues $ |x| \quad \left| x \right| $
+&
+{\fontfamily{qcr}\selectfont
+|x| \quad \textbackslash{}left| x \textbackslash{}right| 
+}
+\\
+
+
+Pareil mais chiant $ \mathopen| x \mathclose| $   
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}mathopen| x \textbackslash{}mathclose|
+}
+\\
+
+Egalités $ = \quad \triangleq \quad \ne \quad \equiv $
+&
+{\fontfamily{qcr}\selectfont
+= \textbackslash{}triangleq \textbackslash{}ne ou \textbackslash{}neq \textbackslash{}equiv
+}
+\\
+
+$ \approx \quad \simeq \quad \sim \quad \cong \quad \thicksim \quad \gtrsim \quad \lesssim $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}approx \textbackslash{}simeq \textbackslash{}sim \textbackslash{}cong \textbackslash{}thicksim \textbackslash{}gtrsim \textbackslash{}lesssim
+}
+\\
+
+
+Inégalités $ \leq \quad \geq \quad \leqslant \quad \geqslant $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}leq \textbackslash{}geq \textbackslash{}leqslant \textbackslash{}geqslant
+}
+\\
+
+$ \ll \quad \gg \quad \prec \quad \succ \quad \preceq \quad \succeq $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}ll \textbackslash{}gg \textbackslash{}prec \textbackslash{}succ \textbackslash{}preceq \textbackslash{}succeq	
+}
+\\
+
+Ensembles $ \in \quad \notin \quad \subset \quad \not\subset \quad \setminus $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}in \textbackslash{}notin \textbackslash{}subset \textbackslash{}not\textbackslash{}subset \textbackslash{}setminus 
+}
+\\
+
+$ \subseteq \quad \nsubseteq \quad \cap \quad \cup \quad \sqcup \quad \supset \quad \varnothing $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}(n)subseteq \textbackslash{}c(a/u)p \textbackslash{}sqc(u/a)p \textbackslash{}supset \textbackslash{}varnothing
+}
+\\
+
+Opérations
+&
+\\
+
+$ \times \quad \div \quad g \circ f \quad \star \quad \pm \quad \mp \quad \ast $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}times \textbackslash{}div \textbackslash{}circ \textbackslash{}star \textbackslash{}pm \textbackslash{}mp \textbackslash{}ast 
+}
+\\
+
+$ \wedge \quad \vee \quad \oplus \quad \otimes \quad \ominus \quad \odot $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}wedge \textbackslash{}vee \textbackslash{}oplus \textbackslash{}otimes \textbackslash{}ominus \textbackslash{}odot	
+}
+\\
+
+Logique
+&
+\\
+
+$ \forall \quad \exists \quad \exists! \quad \nexists \quad \neg \quad \lor \quad \land $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}forall \textbackslash{}exists \textbackslash{}exists! \textbackslash{}nexists \textbackslash{}neg \textbackslash{}lor \textbackslash{}land
+}
+\\
+
+$ \implies \quad \iff \quad \impliedby \quad \Rightarrow \quad \Leftrightarrow $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}implies \textbackslash{}iff \textbackslash{}impliedby \textbackslash{}(Right/Leftright)arrow
+}
+\\
+
+$ \mapsto \quad \longmapsto \quad \to \quad \longrightarrow $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}mapsto \textbackslash{}longmapsto \textbackslash{}to \textbackslash{}longrightarrow
+}
+\\
+
+Autres flèches
+&
+\\
+
+$  \nearrow \quad \hookrightarrow \quad \leadsto \quad \rightleftharpoons $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}nearrow \textbackslash{}hookrightarrow \textbackslash{}leadsto \textbackslash{}rightleftharpoons
+}
+\\
+
+Crochets $ \lfloor \; \; \rfloor \quad \lceil \; \; \rceil \quad [\, \,] \quad \langle \quad \rangle $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}lfloor \textbackslash{}rfloor \textbackslash{}rceil \textbackslash{}lceil [\textbackslash{}, \textbackslash{},] \textbackslash{}langle \textbackslash{}rangle 
+}
+\\
+
+$\llbracket \quad \rrbracket$
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}llbracket \textbackslash{}rrbracket (\textbackslash{}usepackage\{stmaryrd\})
+}
+\\
+
+Normes $ \lVert \, \cdot \, \rVert \quad |||\cdot||| \quad \| u \|$
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}lVert \textbackslash{}rVert \quad |||u||| \quad \textbackslash{}| u \textbackslash{}|
+}
+\\
+
+\textit{ Ajouter {\fontfamily{qcr}\selectfont \textbackslash{},} avec {\fontfamily{qcr}\selectfont \textbackslash{}cdot } }
+&
+\textit{ et {\fontfamily{qcr}\selectfont \textbackslash{}\!\! ;} avec des grosses $ \Sigma $ }
+\\
+
+Divers / jsp
+&
+\\
+
+$ \mid \quad \nmid \quad \parallel \quad \bowtie \quad \dagger \quad \ddagger \quad \square	$
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}mid \textbackslash{}nmid \textbackslash{}parallel \textbackslash{}bowtie \textbackslash{}dagger \textbackslash{}ddagger \textbackslash{}square
+}
+\\
+
+$ \triangleleft \quad \triangleright \quad \bigtriangleup \quad \bigtriangledown \quad \Delta \quad \nabla	$
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}(big)triangle(left/right) \textbackslash{}Delta \textbackslash{}nabla
+}
+\\
+
+$ \perp \quad \top \quad \partial \quad \hbar \quad \ell \quad \Re \quad \Im $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}perp \textbackslash{}top \textbackslash{}partial \textbackslash{}hbar \textbackslash{}ell \textbackslash{}Re \textbackslash{}Im
+}
+\\
+
+$ \epsilon \quad \varepsilon \quad \phi \quad \varphi $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}epsilon \textbackslash{}varepsilon \textbackslash{}phi \textbackslash{}varphi
+}
+\\
+
+
+%%%%%
+&
+{\fontfamily{qcr}\selectfont
+
+}
+\\
+
+
+\end{tabular}	
+
+\restoregeometry
+
+\newpage
+
+
+\section*{Lettres}  %%%% ------------------------------------------------- LETTRES ------------------------------------------------- %%%%
+
+
+\begin{tabular}{ll}
+
+
+
+$ \mathds{N}, \mathds{Z}, \mathds{Q}, \mathds{R}, \mathds{C} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}mathds\{X\}
+}
+\\
+
+$ {\rm I\!N}, {\rm I\!R}  $
+&
+{\fontfamily{qcr}\selectfont
+\{\textbackslash{}rm I\textbackslash{}\!\! !X\}
+}
+\\
+
+$ \mathbb{N}, \mathbb{Z}, \mathbb{Q}, \mathbb{R}, \mathbb{C} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}mathbb\{X\}
+}
+\\	
+
+$ \mathbf{N}, \mathbf{Z}, \mathbf{Q}, \mathbf{R}, \mathbf{C} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}mathbf\{X\}
+}
+\\
+
+$ \mathcal{ABCDEFHKLMOPSUVW} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}mathcal\{ABC\}
+}
+\\
+
+$ \mathfrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}mathfrak\{ABC\}
+}
+\\
+
+\end{tabular}
+
+
+\section*{Accentuations}  %%%% -------------------------------------------- ACCENTUATIONS -------------------------------------------- %%%%
+
+
+\begin{tabular}{ll}
+
+
+Accent circonflexe (texte) $ \string^ $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}string\string^
+}
+\\
+
+
+Accent circonflexe (accent) \^{a}
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}\string^\{a\}
+}
+\\
+
+Accent circonflexe (accent)(maths) $ \hat{a} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}hat\{a\}
+}
+\\
+
+Produit vectoriel / PPCM $ \wedge \vee $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}wedge \textbackslash{}vee
+}
+\\
+
+Angle genre $ \widehat{abc} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}widehat\{abc\}
+}
+\\
+
+Accent aigu $ \acute{a} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}acute\{a\}
+}
+\\
+
+(peut s'appliquer à un mot entier)
+&
+\\
+
+Accent grave $ \grave{a} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}grave\{a\}
+}
+\\
+
+Barre $ \bar{a} \quad \bar{10100}^{2} $ (largeur fixe)
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}bar\{a\}
+}
+\\
+
+Overline $ \overline{a} \quad \overline{10100}^{2} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}overline\{a\}
+}
+\\
+
+Underline $ \underline{a} \quad \underline{Z} = \underline{U}/\underline{I} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}underline\{a\}
+}
+\\
+
+Overbrace $ \overbrace{abc} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}overbrace\{abc\}
+}
+\\
+
+Underbrace $ \underbrace{abc} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}underbrace\{abc\}
+}
+\\
+
+Overset $ \overset{a}{X} \quad \overset{\circ}{B} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}overset\{a\}\{X\}
+}
+\\
+
+Underset $ \underset{a}{X} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}underset\{a\}\{X\}
+}
+\\
+
+Text overbrace $ \overbrace{mainthing}^{overtext} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}overbrace\{mainthing\}\string^\{overtext\}
+}
+\\
+
+Text underbrace $ \underbrace{mainthing}_{undertext} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}underbrace\{mainthing\}\_\{undertext\}
+}
+\\
+
+Point $ \dot{x} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}dot\{x\}
+}
+\\
+
+Point point $ \ddot{x} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}ddot\{x\}
+}
+\\
+
+Tilde $ \tilde{u} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}tilde\{u\}
+}
+\\
+
+
+Widetilde $ \widetilde{abc} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}widetide\{abc\}
+}
+\\
+
+Vecteur $ \overrightarrow{v} \quad \overrightarrow{grad} $ 
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}overrightarrow\{grad\}
+}
+\\
+
+Vecteur $ \vec{v} \quad \vec{grad} $  (moche)
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}vec\{v\}
+}
+\\
+
+Produit scalaire
+&
+\\
+
+$ \overrightarrow{u} \cdot \overrightarrow{v} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}cdot
+}
+\\
+
+$ \overrightarrow{u} \cdotp \overrightarrow{v} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}cdotp
+}
+\\
+
+$ \overrightarrow{u} \bullet \overrightarrow{v} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}bullet
+}
+\\
+
+$ \accentset{\circ}{A} $
+&
+{\fontfamily{qcr}\selectfont
+\textbackslash{}accentset\{\textbackslash{}circ\}\{I\} \quad \textbackslash{}usepackage\{accents\}
+}
+\\
+
+
+
+
+%
+&
+{\fontfamily{qcr}\selectfont
+%\textbackslash{}
+}
+\\
+
+%
+&
+{\fontfamily{qcr}\selectfont
+%\textbackslash{}
+}
+\\
+
+\end{tabular}
+
+
+
+\subsection*{Espacements} % \normalfont (+ alignement)
+
+%\begin{align*}
+
+\begin{tabular}{ll}
+
+$ x^{2} \! + \! 3x \! + \! 2 $
+& 
+{\fontfamily{qcr}\selectfont \textbackslash{}\!\! ! }
+\\
+
+$ x^{2}+3x+2 $ 
+&
+{\fontfamily{qcr}\selectfont [rien] }
+\\
+
+$ x^{2} + 3x + 2 $ 
+&
+{\fontfamily{qcr}\selectfont [espaces] }
+\\
+
+$ x^{2}\, +\, 3x\, +\, 2 $
+&
+{\fontfamily{qcr}\selectfont \textbackslash{},}
+\\
+
+$ x^{2}\: +\: 3x\: +\: 2 $
+&
+{\fontfamily{qcr}\selectfont \textbackslash{}\!\!\! :}
+\\
+
+$ x^{2}\; +\; 3x\; +\; 2 $
+&
+{\fontfamily{qcr}\selectfont \textbackslash{}\!\! ;}
+\\
+
+$ x^{2}\ +\ 3x\ +\ 2 $
+&
+{\fontfamily{qcr}\selectfont \textbackslash{}}
+\\
+
+$ x^{2}\quad +\quad 3x\quad +\quad 2 $
+&
+{\fontfamily{qcr}\selectfont \textbackslash{}quad}
+\\
+
+$ x^{2}\qquad +\qquad 3x\qquad +\qquad 2 $
+&
+{\fontfamily{qcr}\selectfont \textbackslash{}qquad}
+\\
+
+\end{tabular}
+
+%\end{align*} (aligne devant les & (à ajouter du coup, comme point d'ancrage)
+
+\subsection*{Fractions avec \normalfont {\fontfamily{qcr}\selectfont \textbackslash{}frac\{\}\{\}  } }
+
+\begin{center}
+$ 1 + \frac{1}{1+\frac{1}{1+...}} $
+\qquad \qquad
+$ 1 + \frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+...}}}}} $
+\end{center}
+
+\subsection*{Fractions avec \normalfont {\fontfamily{qcr}\selectfont \textbackslash{}cfrac\{\}\{\}  } }
+
+\begin{center}
+$$ 1 + \cfrac{1}{1+\cfrac{1}{1+...}},  
+\qquad\qquad
+1 + \cfrac{1}{1+\cfrac{1}{1+\cfrac{1}{1+\cfrac{1}{1+\cfrac{1}{1+...}}}}} $$
+\end{center}
+
+\subsection*{Autres}
+
+\subsubsection*{Fonction usuelles}
+
+\begin{center}
+
+$ \cos(x), \sin(x), \tan(x), \arccos(x), \arcsin(x), \arctan(x), \cosh(x), \sinh(x), $ \\ 
+$ \tanh(x), \cosh^{-1}(x), \sinh^{-1}(x), \tanh^{-1}(x),  \exp(x), \ln(x), \log(x), \log_{b}(a) $ \\
+$ \arg(x), \dim(x), \min(a,b), \max(a,b), \gcd(a,b) $ \\
+
+\bigskip
+
+$ cos(x), sin(x), tan(x), arccos(x), arcsin(x), arctan(x), cosh(x), sinh(x), $ \\
+$ tanh(x), cosh^{-1}(x), sinh^{-1}(x), tanh^{-1}(x),  exp(x), ln(x), log(x), log_{b}(a) $ \\
+$ arg(x), dim(x), min(a,b), max(a,b), gcd(a,b) $ \\
+
+\end{center}
+
+\textbf{Pour d'autres fonctions : }
+{\fontfamily{qcr}\selectfont \$ \textbackslash{}mathrm\{PGCD\} \$}
+
+\textbf{Pour ajouter des trucs en dessous comme ça :}
+$$ \sum_{\substack{(x,K) \, tq \\ x \in \Omega \\ K \subset I_{x}}} (-1)^{\mathrm{Card(K)}} $$ 
+\begin{center}  {\fontfamily{qcr}\selectfont \textbackslash{}sum\_\{ \textbackslash{}substack\{ ... \textbackslash{}\textbackslash{}
+... \textbackslash{}\textbackslash{} ... \} \}} \\
+\textbf{Ne pas oublier les brackets pour substack.}\end{center}
+
+\newpage
+
+\begin{center} 
+
+$$ \iint_{S} \mu(x,y) dxdy $$
+
+$$ \int \!\!\!\!\!\! \bigcirc \!\!\!\!\!\! \int_{\Sigma} $$
+
+{\fontfamily{qcr}\selectfont
+\$\$ \textbackslash{}int \textbackslash{}!\textbackslash{}!\textbackslash{}!\textbackslash{}!\textbackslash{}!\textbackslash{}!\textbackslash{}! \textbackslash{}bigcirc \textbackslash{}!\textbackslash{}!\textbackslash{}!\textbackslash{}!\textbackslash{}!\textbackslash{}!\textbackslash{}! \textbackslash{}int\_\{Sigma\} \$\$
+}
+
+$$ \left\lVert \: \sum_{i=1}^{n} \lambda_i e_i \: \right\rVert $$ 
+
+{\fontfamily{qcr}\selectfont
+\textbackslash{}left\textbackslash{}lVert \textbackslash{}\!\!\!: \textbackslash{}sum ... \textbackslash{}\!\!\!: \textbackslash{}right\textbackslash{}rVert
+}
+
+
+$$ f(x) \to \ell $$ 
+{\fontfamily{qcr}\selectfont \$ f(x) \textbackslash{}to \textbackslash{}ell \$} 
+
+$$ f(x) \rlap{\hskip 3mm $/$} \longrightarrow \ell $$ 
+{\fontfamily{qcr}\selectfont \$ f(x) \textbackslash{}rlap\{\textbackslash{}hskip 3mm \$/\$\} \textbackslash{}longrightarrow \textbackslash{}ell \$}
+
+\end{center}
+
+\bigskip
+\bigskip
+\bigskip
+
+\Large \textbf{Changer la numérotation des part, chapter, section, etc}
+
+\normalsize
+
+Déjà, dans l'ordre
+
+{\fontfamily{qcr}\selectfont 
+
+\textbackslash{}part
+
+\textbackslash{}chapter
+
+\textbackslash{}section
+
+\textbackslash{}subsection
+
+\textbackslash{}subsubsection
+
+\textbackslash{}paragraph
+
+\textbackslash{}subparagraph
+
+} 
+
+\chapter{Chapter}
+
+\section{Section}
+
+\subsection{Subsection}
+
+\subsubsection{Subsubsection}
+
+\paragraph{Paragraph}
+
+\subparagraph{Subparagraph}
+
+\paragraph{}
+
+\paragraph{}
+
+Et ensuite pour renommer
+
+{\fontfamily{qcr}\selectfont
+
+\textbackslash{}renewcommand\textbackslash{}thepart\{\textbackslash{}arabic\{part\}\}
+
+\textbackslash{}renewcommand\textbackslash{}thesection\{\textbackslash{}arabic\{section\}\}
+
+\textbackslash{}renewcommand\textbackslash{}thesubsection\{\textbackslash{}arabic\{subsection\}\}
+
+\textbackslash{}arabic : 1, 2, 3, ...
+
+\textbackslash{}alph : a, b, c, ...
+
+\textbackslash{}Alph : A, B, C, ...
+
+\textbackslash{}roman : i, ii, iii, ...
+
+\textbackslash{}Roman : I, II, III, ...
+
+}
+
+
+
+
+
+\newpage
+
+\textbf{Systèmes d'équations}
+
+\begin{align*}
+x + y + z &= a\\
+x - y &= b\\
+z &= c
+\end{align*}
+
+\begin{center}
+{\fontfamily{qcr}\selectfont
+\textbackslash{}begin\{align*\} .. \&= .. \textbackslash{}\textbackslash{} .. \&= .. \textbackslash{}end\{align*\}
+}\\
+\end{center}
+
+\begin{eqnarray*}
+x + y + z &=& a\\
+x - y &=& b\\
+z &=& c
+\end{eqnarray*}
+
+\begin{center}
+{\fontfamily{qcr}\selectfont
+\textbackslash{}begin\{eqnarray*\} .. \&=\& .. \textbackslash{}\textbackslash{} .. \&=\& .. \textbackslash{}end\{eqnarray*\}
+}\\
+\end{center}
+
+\textbf{Une seule esperluette pour align, deux pour  array.}\\
+Enlever les astérisques numérote les équations. 
+
+$$
+\left\{
+\begin{array}{r c l}
+x + y + z &=& a\\
+x - y &=& b\\
+z &=& c
+\end{array}
+\right.
+$$
+
+{\fontfamily{qcr}\selectfont
+\$\$ \\
+\textbackslash{}left\textbackslash{}\{ \\
+\textbackslash{}begin\{array\}\{r c l\} \\
+... \&=\& ... \\
+... \&=\& ... \\
+\textbackslash{}end\{array\} \\
+\textbackslash{}right. \\
+\$\$
+} \\
+Le point représente une \textbf{absence de délimiteurs.} \\
+(on pourrait choisir de refermer l'accolade à droite).
+\bigskip
+\textbf{Autres délimiteurs :}
+
+
+
+
+
+$$
+\left(
+\begin{array}{r c l}
+x + y + z &=& a\\
+y - z &=& b\\
+z &=& c 
+\end{array}
+\right)
+\left[
+\begin{array}{r c l}
+x + y + z &=& a\\
+y - z &=& b\\
+z &=& c 	
+\end{array}
+\right]
+$$
+$$
+\left|
+\begin{array}{r c l}
+x + y + z &=& a\\
+x - y &=& b\\
+z &=& c
+\end{array}
+\right|
+\quad
+\left\|
+\begin{array}{r c l}
+x + y + z &=& a\\
+x - y &=& b\\
+z &=& c
+\end{array}
+\right\|
+$$
+\bigskip
+\begin{center}
+{\fontfamily{qcr}\selectfont \textbackslash{}left( \qquad \textbackslash{}left[ \qquad \textbackslash{}left| \qquad \textbackslash{}left\textbackslash{}| }
+\end{center}
+
+\newpage
+
+\subsubsection*{Les matrices}
+
+Avec l'environnement {\fontfamily{qcr}\selectfont array}  (et des \textbackslash{}quad) :
+$$
+\left[
+\begin{array}{r c l}
+1 \quad 2 \quad 3 \\
+4 \quad 5 \quad 6 \\
+7 \quad 8 \quad 9
+\end{array}
+\right] $$
+
+{\fontfamily{qcr}\selectfont
+\$\$ \\
+\textbackslash{}left[ \\
+\textbackslash{}begin\{array\}\{r c l\} \\
+1 \textbackslash{}quad 2 \textbackslash{}quad 3 \textbackslash{}\textbackslash{} \\
+4 \textbackslash{}quad 5 \textbackslash{}quad 6 \textbackslash{}\textbackslash{} \\
+7 \textbackslash{}quad 8 \textbackslash{}quad 9 \\
+\textbackslash{}end\{array\} \\
+\textbackslash{}right] \\
+\$\$ 
+}
+
+Avec {\fontfamily{qcr}\selectfont matrix, pmatrix, bmatrix, vmatrix, 	Bmatrix, Vmatrix} :
+
+$
+\begin{matrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{matrix}
+$
+\quad
+$
+\begin{pmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{pmatrix}
+$
+\quad
+$
+\begin{bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{bmatrix}
+$
+\quad
+$
+\begin{vmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{vmatrix}
+$
+\quad
+$
+\begin{Bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{Bmatrix}
+$
+\quad
+$
+\begin{Vmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{Vmatrix}
+$
+
+{\fontfamily{qcr}\selectfont
+\$\$ \\
+\textbackslash{}begin\{matrix\} \\
+.. \& .. \& .. \textbackslash{}\textbackslash{} \\
+.. \& .. \& .. \textbackslash{}\textbackslash{} \\
+.. \& .. \& .. \\
+\textbackslash{}end\{matrix\} \\
+\$\$
+} 
+\bigskip
+
+\textbf{Pour les mettres les unes à côté des autres :} utiliser des \textbf{monodollars}, une paire par matrice, éventuellement séparés par des {\fontfamily{qcr}\selectfont \textbackslash{}quad} comme ici.
+
+\textbf{Technique ultime utilisée par Benhamou Sensei :}
+
+$$ \left( \: \begin{matrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{matrix} \: \right) $$
+
+Entourer l'environnement {\fontfamily{qcr}\selectfont matrix} par {\fontfamily{qcr}\selectfont \textbackslash{}left( \textbackslash{}\!\!\!:} et 
+{\fontfamily{qcr}\selectfont \textbackslash{}\!\!\!: \textbackslash{}right) }.
+
+\textbf{Pointillés :}
+
+\begin{tabular}{lllll}
+$ \cdots $ & $ \ldots $ & $ \vdots $ & $ \ddots $ & $ \iddots $ \\
+{\fontfamily{qcr}\selectfont \textbackslash{}cdots } & {\fontfamily{qcr}\selectfont \textbackslash{}ldots } & {\fontfamily{qcr}\selectfont \textbackslash{}vdots } & {\fontfamily{qcr}\selectfont \textbackslash{}ddots} & {\fontfamily{qcr}\selectfont \textbackslash{}iddots} ({\fontfamily{qcr}\selectfont \textbackslash{}usepackage\{mathdots\}})
+\end{tabular}
+
+La commande {\fontfamily{qcr}\selectfont \textbackslash{}phantom} permet de gérer les alignements et le centrage des nombres dans chaque case.
+
+
+%$
+%\begin{bmatrix}
+%   1 & 12345 & 3 \\
+%   94 & 5 & -6 \\
+%   7 & 8 & 9 
+%\end{bmatrix}
+%$
+%\quad
+%$
+%\begin{bmatrix}
+%   \phantom{9}1 & 12345 & \phantom{-}3 \\
+%   94 & \phantom{1234}5 & -6 \\
+%   \phantom{9}7 & \phantom{1234}8 & \phantom{-}9 
+%\end{bmatrix}
+%$
+
+\subsection*{Matrices et applications}
+
+Faire une belle application (Aymeric sensei no jutsu)
+
+$$
+\begin{array}{ccccc} 
+\phi & : & \mathbb{N}^* & \to & \mathbb{N} \\ 
+& & n & \mapsto & Card \left\{ k \in |[1,n]|, \, pgcd(k,n) = 1 \right\} \\ 
+\end{array}
+$$
+
+
+{\fontfamily{qcr}\selectfont
+\$ \textbackslash{}begin\{array\}\{ccccc\}  \\
+f \& : \& \{\} \& \textbackslash{}to \& \{\} \textbackslash{}\textbackslash{}  \\
+\& \& x \& \textbackslash{}mapsto \& ... \textbackslash{}\textbackslash{}  \\
+\textbackslash{}end\{array\} \$
+}
+
+\textbf{On retiendra} : 
+{\fontfamily{qcr}\selectfont \textbackslash{}begin\{array\}\{ccccc\} } \\
+Et mettre des esperluettes entre chaque truc, deux au début de la deuxième ligne (pour aligner $f$)
+et pas en fin de ligne
+
+Faire des belles matrices (Aymeric sensei no jutsu)
+
+$$
+\begin{bmatrix} 
+a & b & c \\
+d & e & f \\
+g & h & i
+\end{bmatrix}
+$$
+
+{\fontfamily{qcr}\selectfont
+\$ \textbackslash{}begin\{bmatrix\}  \\
+a \& b \& c \textbackslash{}\textbackslash{}  \\
+a \& b \& c \textbackslash{}\textbackslash{}  \\
+a \& b \& c \textbackslash{}\textbackslash{}  \\
+\textbackslash{}end\{bmatrix\} \$
+}
+
+\textbf{On retiendra} : {\fontfamily{qcr}\selectfont array bmatrix }, \\
+esperluettes entre les objets, \\
+et on revient à la ligne avec {\fontfamily{qcr}\selectfont \textbackslash{}\textbackslash{} } 
+
+%\textbackslash{} begin\{array\}\{ccccc\} 
+%f \& : \& \{\} \& \to \& ... \textbackslash \textbackslash
+%\& \& x \mapsto \& ...\textbackslash \textbackslash
+%\textbackslash end\{array\}
+
+%}
+
+Il faut deux esperluettes au début de la deuxième ligne \\
+pour que le f soit un peu décalé vers la gauche \\
+Et sinon, un entre chaque truc, sauf en fin de ligne (y'a plus rien à aligner) 
+
+Matrices par blocs
+
+$$
+\left(
+\begin{array}{c|c}
+A & B\\
+\hline
+C & D
+\end{array}
+\right)
+$$
+
+{\fontfamily{qcr}\selectfont
+\$ \textbackslash{}left( \textbackslash{}begin\{array\}\{c|c\} \\
+A \& B \textbackslash{}\textbackslash{} \\
+\textbackslash{}hline \\
+C \& D \\
+\textbackslash{}end\{array\} \textbackslash{}right) \$
+} Attention aux \textbackslash{}\textbackslash{}
+
+%%%%%%%%% POINTILLES MATRICES   ---------    https://tex.stackexchange.com/questions/32217/3-dots-in-matrix/32221 %%%%%%%
+
+\subsection*{Autres}
+
+\textbf{Saut de ligne} : {\fontfamily{qcr}\selectfont \textbackslash{}bigskip} \quad (ne \textit{pas} mettre en fin de ligne) \\
+\textbf{\textcolor{red}{Couleurs :}} {\fontfamily{qcr}\selectfont \textbackslash{}textcolor\{couleur\}\{texte\}  (\textbackslash{}usepackage\{color\})}\\
+Pour afficher {\fontfamily{qcr}\selectfont \textbackslash{}\!\! !}, il faut ajouter {\fontfamily{qcr}\selectfont \textbackslash{}\!\! !\textbackslash{}\!\! !} entre {\fontfamily{qcr}\selectfont \textbackslash{}} et {\fontfamily{qcr}\selectfont !}. \\
+Pour afficher {\fontfamily{qcr}\selectfont \textbackslash{}\!\!\!:}, il faut ajouter {\fontfamily{qcr}\selectfont \textbackslash{}\!\! !\textbackslash{}\!\! !\textbackslash{}\!\! !} entre {\fontfamily{qcr}\selectfont \textbackslash{}} et {\fontfamily{qcr}\selectfont :}. \\
+Pour élargir le corps du texte : {\fontfamily{qcr}\selectfont \textbackslash{}usepackage\{geometry\}} \quad {\fontfamily{qcr}\selectfont \textbackslash{}textwidth = 426pt} \textbf{(non)} \\
+Pour afficher certains caractères hors du math mode : {\fontfamily{qcr}\selectfont \textbackslash{}textbullet \textbackslash{}dagger \textbackslash{}textasteriskcentered (p3 de la Big Great List)} \\
+Pour encadrer : {\fontfamily{qcr}\selectfont \textbackslash{}fbox\{...\}} ; remettre impérativement des dollars à l'intérieur si c'est dans une équation. \\
+Lettre grecques en math mode \textit{uniquement}.\\
+{\fontfamily{qcr}\selectfont \textbackslash{}displaystyle\{\} :} mettre les dollars à \textbf{l'extérieur}. 
+
+\subsubsection*{Remarques très anecdotiques}
+
+Il y a  {\fontfamily{qcr}\selectfont :} et {\fontfamily{qcr}\selectfont colon} \\
+Autres façons de faire l'ensemble vide : {\fontfamily{qcr}\selectfont \textbackslash{}emptyset \textbackslash{}o } \\
+$ \diamond $ \quad {\fontfamily{qcr}\selectfont \textbackslash{}diamond} $ \surd $   {\fontfamily{qcr}\selectfont \textbackslash{}surd}
+
+{\fontfamily{qcr}\selectfont \textbackslash{}Arrowvert}
+
+
+\subsubsection*{Import de packages}
+
+Belles lettres : \\
+{\fontfamily{qcr}\selectfont
+\textbackslash{}usepackage[utf8]\{inputenc\} \\
+\textbackslash{}usepackage[T1]\{fontenc\} \\
+\textbackslash{}usepackage\{lmodern\}
+} \\
+Français : {\fontfamily{qcr}\selectfont \textbackslash{}usepackage[french]\{babel\} } \\
+Quelques symboles de maths : {\fontfamily{qcr}\selectfont \textbackslash{}usepackage\{amsmath\} } \\
+Plus de symboles de maths : {\fontfamily{qcr}\selectfont \textbackslash{}usepackage\{amssymb\} } \\
+Belles lettres de maths : {\fontfamily{qcr}\selectfont \textbackslash{}usepackage\{dsfont\} } (sans s) \\
+Quelques polices : {\fontfamily{qcr}\selectfont \textbackslash{}usepackage\{amsfonts\} } (avec s)\\
+{\fontfamily{qcr}\selectfont En particulier, cette police-la : \\
+\{ \textbackslash{}fontfamily\{qcr\}\textbackslash{}selectfont ... \} } \\
+{\fontfamily{qcr}\selectfont 1 in = 72.27 pt = 25.4mm, 1cm=28.453pt }
+	
+
+
+
+
+
+\newpage
+
+
+
+\end{document}
