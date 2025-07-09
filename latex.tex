@@ -1,7 +1,5 @@
 \documentclass{report}
 
-
-
 \usepackage[french]{babel}
 
 \usepackage{parskip}
@@ -1114,14 +1112,103 @@ En particulier, cette police-la : \texttt{ \textbackslash texttt \{ ... \}}\\
 
 \section*{Commandes}
 
-\textbf{Tableaux}
+\begin{verbatim}
+\newcommand{\cmdName}[numArgs][defaultValue]{substitution}
+\renewcommand{\mycommand}{Goodbye, World!}
+\end{verbatim}
 
-\texttt{\textbackslash begin\{tabular\}\{ccccc\} \\ a \& b \textbackslash\textbackslash \\ c \& d \\ \textbackslash end\{tabular\}}
+\subsection*{Environments}
+
+\begin{verbatim}
+\usepackage{amsthm}
+
+% Plain style : bold title, italic text
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section] 
+% "theorem" refers to the fact that 
+% \begin{theorem} ... \end{theorem} must be used.
+% "Theorem" is what will be written at the beginning.
+% [section] here indicated that the counter will be reset at each \section.
+\newtheorem{lemma}[theorem]{Lemma}
+% [theorem] here indicates that the counter for lemmas 
+% will be shared with the theorem's.
+\newtheorem{corollary}[theorem]{Corollary}
+% idem.
+
+% Definition style : bold title, upright text (=normal, non italic)
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+% Remark style : italic title, upright text (=normal, non italic)
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+% Use the starred version to have all remarks unnumbered. 
+
+\begin{document}
+
+\section{Basic Concepts}
+
+\begin{definition} ... \end{definition}
+
+\begin{theorem}[Extreme Value Theorem] ... \end{proof}
+% Theorem name
+
+\begin{proof} ... \end{proof}
+% The proof environment is provided by default. 
+% It adds "Proof. ... \qed".
+\end{document}
+
+\end{verbatim}
+
+\subsection*{Tableaux}
+
+\begin{verbatim}
+\begin{tabular}{ccccc}
+a & b \\ 
+c & d 
+\end{tabular}
+\end{verbatim}
+
 \section*{Packages}
+
+\subsection*{Espacements}
+
+\begin{verbatim}
+\usepackage{parskip}
+\includegraphics[scale=0.5]{img.jpg}
+\end{verbatim}
+
+\subsection*{Unités pour la longueur}
+
+\texttt{pt} (72.25 \texttt{pt} = 1 \texttt{in})
+
+\texttt{in} (1 \texttt{in} = 2.54 \texttt{cm})
+
+\texttt{cm} (\texttt{cm})
+
+\texttt{mm} (\texttt{mm})
 
 \subsection*{\texttt{graphicx}}
 
-\texttt{\textbackslash usepackage\{graphicx\} \\ \textbackslash includegraphics[scale=0.5]\{img.jpg\}}
+\begin{verbatim}
+\usepackage{graphicx}
+\includegraphics[scale=0.5]{img.jpg}
+\end{verbatim}
+
+\subsection*{Fancy headers}
+
+\begin{verbatim}
+\renewcommand{\chaptermark}[1]{
+	\markboth{\chaptername\ \thechapter.\ #1}{}
+} % This actually sets \leftmark
+\renewcommand{\sectionmark}[1]{
+	\markright{\thesection.\ #1}
+} % This sets \rightmark
+\pagestyle{fancy}
+\fancyhead[LE,RO]{\nouppercase{\rightmark}}
+\fancyhead[LO,RE]{\nouppercase{\leftmark}}
+\end{verbatim}
 
 
-\end{document}\
+\end{document}
