@@ -1108,6 +1108,15 @@ Belles lettres de maths : \texttt{ \textbackslash{}usepackage\{dsfont\} } (sans 
 Quelques polices : \texttt{ \textbackslash{}usepackage\{amsfonts\} } (avec s)\\
 En particulier, cette police-la : \texttt{ \textbackslash texttt \{ ... \}}\\
 
+\textbf{Symboles utiles}
+
+\begin{verbatim}
+\newcommand{\og}{«}
+\newcommand{\fg}{»}
+\end{verbatim}
+
+These are provided by default in $\texttt{\textbackslash usepackage[french]{babel}}$
+
 \newpage
 
 \section*{Commandes}
@@ -1163,12 +1172,185 @@ En particulier, cette police-la : \texttt{ \textbackslash texttt \{ ... \}}\\
 
 \subsection*{Tableaux}
 
+\begin{tabular}{ccccc}
+a & b \\ 
+c & d 
+\end{tabular}
+
 \begin{verbatim}
 \begin{tabular}{ccccc}
 a & b \\ 
 c & d 
 \end{tabular}
 \end{verbatim}
+
+\begin{table}[ht]
+  \centering
+  \caption{Multi-column alignment}
+  \label{tab:align}
+  \begin{tabular}{lcr}
+    Left & Center & Right \\
+    \hline
+    A    & B      & C \\
+    D    & E      & F \\
+  \end{tabular}
+\end{table}
+
+\begin{verbatim}
+\begin{table}[ht]
+  \centering
+  \caption{Multi-column alignment}
+  \label{tab:align}
+  \begin{tabular}{lcr}
+    Left & Center & Right \\
+    \hline
+    A    & B      & C \\
+    D    & E      & F \\
+  \end{tabular}
+\end{table}
+\end{verbatim}
+
+\subsection*{Cross-references}
+
+\begin{verbatim}
+	\section{Introduction} \label{sec:intro}
+	As seen in Section~\ref{sec:intro}, ...
+
+	\begin{equation} \label{eq:newton}
+	F = ma
+	\end{equation}
+	See Equation~\eqref{eq:newton}.
+
+	\begin{figure}
+	\includegraphics{image.png}
+	\caption{Sample Image}
+	\label{fig:sample}
+	\end{figure}
+	Refer to Figure~\ref{fig:sample}.
+
+	\begin{table}
+	\caption{Sample Data}
+	\label{tab:data}
+	\end{table}
+	Refer to Table~\ref{tab:data}.
+
+	\begin{theorem} \label{thm:main}
+	This is a theorem.
+	\end{theorem}
+	Theorem~\ref{thm:main}
+
+	See page~\pageref{fig:sample}. % Can be any
+
+	\begin{enumerate}
+	\item First item \label{item:first}
+	\end{enumerate}
+	See item~\ref{item:first}.	
+\end{verbatim}
+
+Note : The \texttt{~} are non-breaking spaces. This allows for \LaTeX to never break to a newline.
+
+\subsection*{Aligner les équations}
+
+
+\begin{align*}
+x &= y \\
+y &\leqslant z
+\end{align*}
+
+\begin{verbatim}
+\begin{align*}
+x &= y \\
+y &\leqslant z
+\end{align*}
+\end{verbatim}
+
+Use the unstarred version \texttt{\textbackslash begin\{align\}} to number the equation.
+
+\[
+\forall n \in \mathbf N, 
+\left\{
+\begin{aligned}
+    a_{n+1} &\in (b_n, 1) \\
+    b_{n+1} &= \sqrt{ \frac{a_{n+1}^2 + u_n(1-a_{n+1}^2)}{a_{n+1}^2 + (1+u_n)(1-a_{n+1}^2)} }
+\end{aligned}
+\right.
+\]
+
+\begin{verbatim}
+\[
+\forall n \in \mathbf N, 
+\left\{
+\begin{aligned}
+    a_{n+1} &\in (b_n, 1) \\
+    b_{n+1} &= \sqrt{ \frac{a_{n+1}^2 + u_n(1-a_{n+1}^2)}{a_{n+1}^2 + (1+u_n)(1-a_{n+1}^2)} }
+\end{aligned}
+\right.
+\]
+\end{verbatim}
+
+\subsection*{Bibliographie}
+
+In a \texttt{.bib} file : 
+
+\begin{verbatim}
+@book{PPIntro2003,
+  author={D. J. Daley and D. Vere-Jones},
+  title={An Introduction to the Theory of Point Processes},
+  journal={Probability and Its Applications},
+  year={2003},
+  volume={1},
+  edition={2},
+  doi={https://doi.org/10.1007/b97277},
+  publisher={Springer},
+  isbn={978-0-387-95541-4},
+  isbn_softcover={978-1-4757-8109-0},
+  isbn_ebook={978-0-387-21564-8},
+}
+
+@incollection{Decreusefond2016,
+  title={Determinantal point processes},
+  author={Decreusefond, Laurent, ...},
+  booktitle={Stochastic analysis, ...},
+  pages={311--342},
+  year={2016},
+  publisher={Springer}
+}
+
+@misc{ParisEst2022,
+ author = {Nathael Gozlan, ...},
+ title = {Notes de cours sur le Transport Optimal},
+ year = {2022},
+}
+
+@misc{MorozSoftware,
+  author       = {G. Moroz},
+  title        = {Determinantal point process},
+  year         = {2020},
+  howpublished = {\url{...}},
+  note         = {Software, doi:10.5281/zenodo.4088585  },
+}
+\end{verbatim}
+
+And then, 
+
+\begin{verbatim}
+\usepackage{cite}
+
+\cite{ParisEst2022}
+
+...
+
+\bibliographystyle{plain}
+\bibliography{Article} % File Article.bib
+\end{verbatim}
+
+Bibliography styles :
+\begin{itemize}
+\item \texttt{plain}: Entries are listed in alphabetical order by author and are labeled numerically.
+\item \texttt{unsrt}: Similar to plain, but entries are listed in the order they are cited in the document.
+\item \texttt{alpha}: Entries are listed alphabetically and are labeled with an alphabetic code based on the author's name and the year of publication.
+\item \texttt{abbrv}: Similar to plain, but uses abbreviated journal names and first names of authors.
+\end{itemize}
 
 \section*{Packages}
 
@@ -1210,5 +1392,27 @@ c & d
 \fancyhead[LO,RE]{\nouppercase{\leftmark}}
 \end{verbatim}
 
+\subsection*{Algorithms}
+
+\begin{verbatim}
+\begin{algorithm}
+    \caption{This algorithm does ...}
+    \begin{algorithmic}[1]
+    \State \textbf{Input :} ...
+    \State \textbf{Output :} ...
+    \State $x \leftarrow ... $
+    \State ...
+    \For{$i \leftarrow 2$ to n}
+        \State ...
+    \EndFor
+    \end{algorithmic}
+\end{algorithm}
+\end{verbatim}
+
+\texttt{\textbackslash begin\{algorithmic\}[1]} Sets line numbering.
+
+\texttt{\textbackslash begin\{algorithmic\}[2]} Would set line numbering, but numbering every two line.
+
+\texttt{\textbackslash begin\{algorithmic\}} Disables line numbering.
 
 \end{document}

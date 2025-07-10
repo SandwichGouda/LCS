@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{amsmath, amsthm, amssymb}
+
+% Plain style (bold title, italic text) — used for results
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+% Definition style (bold title, upright text) — used for concepts
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+% Remark style (italic title, upright text) — used for informal comments
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\begin{document}
+
+\section{Basic Concepts}
+
+\begin{definition}
+A function \( f: \mathbb{R} \to \mathbb{R} \) is said to be \emph{continuous} at a point \( x_0 \in \mathbb{R} \) if
+\[
+\lim_{x \to x_0} f(x) = f(x_0).
+\]
+\end{definition}
+
+\begin{theorem}[Extreme Value Theorem]
+Let \( f \) be a continuous real-valued function on the closed interval \( [a, b] \). Then \( f \) attains a maximum and a minimum on \( [a, b] \).
+\end{theorem}
+
+\begin{proof}
+Since \( f \) is continuous on the compact interval \( [a, b] \), by the Weierstrass theorem, \( f \) is bounded and attains its bounds. Therefore, there exist \( x_{\min}, x_{\max} \in [a, b] \) such that
+\[
+f(x_{\min}) \leq f(x) \leq f(x_{\max}) \quad \text{for all } x \in [a, b].
+\]
+\end{proof}
+
+\begin{example}
+The function \( f(x) = \sin x \) is continuous on \( [0, \pi] \), so it attains its minimum at \( x = \frac{\pi}{2} \) and maximum at \( x = \frac{\pi}{2} \), both equal to 1.
+\end{example}
+
+\begin{remark}
+Compactness of the domain is essential; the result fails on open intervals.
+\end{remark}
+
+\end{document}
