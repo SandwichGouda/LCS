@@ -1181,7 +1181,7 @@ These are provided by default in $\texttt{\textbackslash usepackage[french]{babe
 
 (suitable for books)
 
-\begin{verabtim}
+\begin{verbatim}
 \usepackage{parskip}
 \usepackage{indentfirst}
 \setlength{\parindent}{15pt} 
@@ -1436,4 +1436,74 @@ Bibliography styles :
 
 \texttt{\textbackslash begin\{algorithmic\}} Disables line numbering.
 
+\newpage
+
+\subsection*{Premable for the article}
+
+\begin{verbatim}
+
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\newcommand{\og}{«\:}
+\newcommand{\fg}{»}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\usepackage{geometry}
+
+\usepackage{cite}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode} % For algorithmic environment
+
+\theoremstyle{plain}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{notation}[definition]{Notation}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{hypothesis}[definition]{Hypothesis}
+
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\setlength{\parindent}{15pt} % or any desired value
+\setlength{\parskip}{6pt}    % optional: 
+\newgeometry{left = 1in, right = 1in, top = 1in}
+
+\title{...}
+\author{...}
+\date{...}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    ...
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+
+\end{verbatim}
 \end{document}
