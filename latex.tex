@@ -1443,31 +1443,34 @@ Bibliography styles :
 \begin{verbatim}
 
 \documentclass[11pt]{article}
-
+%
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage[english]{babel}
 \newcommand{\og}{«\:}
 \newcommand{\fg}{»}
-
+%
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{amsthm}
-
-\usepackage{geometry}
-
-\usepackage{cite}
-
-\usepackage{hyperref}
-\usepackage{graphicx}
+%
 \usepackage{svg}
-
+\usepackage{graphicx}
+\usepackage{tikz}
+%
+\usepackage{cite}
+\usepackage{hyperref}
+\usepackage{geometry}
+%
+\setlength{\parindent}{15pt} % or any desired value
+\setlength{\parskip}{6pt}    % optional: 
+\newgeometry{left = 1in, right = 1in, top = 1in}
+%
 \usepackage{algorithm}
 \usepackage{algpseudocode} % For algorithmic environment
-
-\theoremstyle{plain}
+%
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
 \newtheorem{theorem}[definition]{Theorem}
@@ -1476,7 +1479,7 @@ Bibliography styles :
 \newtheorem{proposition}[definition]{Proposition}
 \newtheorem{remark}[definition]{Remark}
 \newtheorem{hypothesis}[definition]{Hypothesis}
-
+%
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -1484,26 +1487,22 @@ Bibliography styles :
     linkcolor=black,
     urlcolor=black
 }
-
-\setlength{\parindent}{15pt} % or any desired value
-\setlength{\parskip}{6pt}    % optional: 
-\newgeometry{left = 1in, right = 1in, top = 1in}
-
+%
 \title{...}
 \author{...}
 \date{...}
-
+%
 \begin{document}
-
+%
 \maketitle
-
+%
 \begin{abstract}
     ...
 \end{abstract}
-
+%
 \tableofcontents
-
+%
 \section{Introduction}
-
+...
 \end{verbatim}
 \end{document}
