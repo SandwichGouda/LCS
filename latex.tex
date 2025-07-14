@@ -1310,7 +1310,7 @@ Use the unstarred version \texttt{\textbackslash begin\{align\}} to number the e
 \]
 \end{verbatim}
 
-\subsection*{Bibliographie}
+\subsection*{Bibliography}
 
 In a \texttt{.bib} file : 
 
@@ -1363,7 +1363,9 @@ And then,
 ...
 
 \bibliographystyle{plain}
-\bibliography{Article} % File Article.bib
+\bibliography{Article, books, misc} % Files *.bib
+
+$ > pdflatex main.tex ; bibtex main ; pdflatex main.tex ; pdflatex main.tex
 \end{verbatim}
 
 Bibliography styles :
