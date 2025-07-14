@@ -1370,6 +1370,8 @@ And then,
 $ > pdflatex main.tex ; bibtex main ; pdflatex main.tex ; pdflatex main.tex
 \end{verbatim}
 
+Use \texttt{bibtool -s -i misc.bib -o misc.bib -r 'author,year,title'} to sort and reformat your \texttt{*.bib} files !
+
 Bibliography styles :
 \begin{itemize}
 \item \texttt{plain}: Entries are listed in alphabetical order by author and are labeled numerically.
@@ -1400,7 +1402,7 @@ Bibliography styles :
 }
 \end{verbatim}
 
-Note : \texttt{\dimexpr\textbackslash -2\textbackslash fboxsep-2\textbackslash fboxrule} computes the width of the minipage.
+Note : \texttt{\textbackslash dimexpr -2\textbackslash fboxsep-2\textbackslash fboxrule} computes the width of the minipage.
 
 \texttt{\textbackslash dimexpr a - b + c } allows to perform computations (in particular provides the syntax for it)
 
