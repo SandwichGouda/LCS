@@ -25,6 +25,8 @@
 
 \usepackage{url}
 
+\usepackage{tcolorbox}
+
 %%%% PEIGNE FIN TUTO SDZ PR AVOIR TOUT 
 %%%% S gothique (et autres) mathfrak ? (doivent etre inclus dans la table polices maths (A arrongi, L endomorph/laplace tho)
 %%%% tA (transposée) expôsant à gauche ?
@@ -1375,6 +1377,56 @@ Bibliography styles :
 \item \texttt{alpha}: Entries are listed alphabetically and are labeled with an alphabetic code based on the author's name and the year of publication.
 \item \texttt{abbrv}: Similar to plain, but uses abbreviated journal names and first names of authors.
 \end{itemize}
+
+\subsection*{Minipages}
+
+\begin{minipage}{0.9\textwidth}
+    This is a block of text that takes 90\% of the page text width block.
+\end{minipage}
+
+\begin{verbatim}
+\begin{minipage}{0.9\textwidth}
+    This is a block of text that takes 90\% of the page text width block.
+\end{minipage}
+\end{verbatim}
+
+\begin{verbatim}
+\setlength{\fboxsep}{5pt}
+\setlength{\fboxrule}{1pt}
+\fbox{
+  \begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule}
+  This text fits perfectly inside a box that is the full width of the text area.
+  \end{minipage}
+}
+\end{verbatim}
+
+Note : \texttt{\dimexpr\textbackslash -2\textbackslash fboxsep-2\textbackslash fboxrule} computes the width of the minipage.
+
+\texttt{\textbackslash dimexpr a - b + c } allows to perform computations (in particular provides the syntax for it)
+
+textbackslash \texttt{\textbackslash-2\textbackslash fboxsep-2\ fboxrule} Computes the text block width, minus twice the fbox padding, minus twice the fbox line width.
+
+\texttt{\textbackslash parbox} and \texttt{\textbackslash makebox}
+
+\texttt{\textbackslash noindent} allows to remove indentation if needed
+
+\subsection*{More fancy boxes}
+
+\tcbset{colframe=red!75!orange, colback=blue!5, boxrule=0.8pt, arc=4pt, outer arc=4pt}
+
+\begin{tcolorbox}
+This is a beautiful colored box with rounded corners.
+\end{tcolorbox}
+
+\begin{verbatim}
+\usepackage{tcolorbox}
+
+\tcbset{colframe=blue!75!black, colback=blue!5, boxrule=0.8pt, arc=4pt, outer arc=4pt}
+
+\begin{tcolorbox}
+This is a beautiful colored box with rounded corners.
+\end{tcolorbox}
+\end{verbatim}
 
 \section*{Packages}
 

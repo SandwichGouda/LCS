@@ -1,0 +1,23 @@
+# Insofar installed TeX Live packages
+
+sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install tlnet --usermode
+sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install mathrsfs
+sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install rsfs
+sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install courier
+sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install wasysym
+sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install wasy
+sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install polyglossia
+sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install lipsum
+sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install boxedminipage
+sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install algorithm
+sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install algorithms
+sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install algpseudocode.sty
+sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install algorithmicx
+sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install svg
+sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install transparent
+sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install boxedminipage
+sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install needspace
+sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install tcolorbox
+
+
+tlmgr install mathrsfs rsfs courier wasysym wasy polyglossia lipsum boxedminipage algorithm algorithms algpseudocode.sty algorithmicx svg transparent boxedminipage needspace tcolorbox
