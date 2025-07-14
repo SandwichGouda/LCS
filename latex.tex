@@ -1283,7 +1283,7 @@ c & d
 	See item~\ref{item:first}.	
 \end{verbatim}
 
-Note : The \texttt{~} are non-breaking spaces. This allows for \LaTeX to never break to a newline.
+\textbf{Note :} The \texttt{~} are non-breaking spaces. This allows for \LaTeX to never break to a newline.
 
 \subsection*{Aligner les équations}
 
@@ -1414,7 +1414,7 @@ Bibliography styles :
 }
 \end{verbatim}
 
-Note : \texttt{\textbackslash dimexpr -2\textbackslash fboxsep-2\textbackslash fboxrule} computes the width of the minipage.
+\textbf{Note :} \texttt{\textbackslash dimexpr -2\textbackslash fboxsep-2\textbackslash fboxrule} computes the width of the minipage.
 
 \texttt{\textbackslash dimexpr a - b + c } allows to perform computations (in particular provides the syntax for it)
 
@@ -1432,29 +1432,6 @@ textbackslash \texttt{\textbackslash-2\textbackslash fboxsep-2\ fboxrule} Comput
 This is a beautiful colored box with rounded corners.
 \end{tcolorbox}
 
-Variant : 
-
-\begin{verbatim}
-\usepackage{tcolorbox}
-
-\newtcolorbox{mybox}{
-    colback=lightgray, % Background color
-    colframe=darkgray, % Frame color
-    arc=3pt, % Rounded corners
-    boxrule=1pt, % Frame thickness
-    left=6pt, % Left padding
-    right=6pt, % Right padding
-    top=6pt, % Top padding
-    bottom=6pt, % Bottom padding
-}
-
-\begin{document}
-
-\begin{mybox}
-This is some text inside my custom box environment.
-\end{mybox}
-\end{verbatim}
-
 \begin{verbatim}
 \usepackage{tcolorbox}
 
@@ -1464,6 +1441,36 @@ This is some text inside my custom box environment.
 This is a beautiful colored box with rounded corners.
 \end{tcolorbox}
 \end{verbatim}
+
+Reusable version :
+
+\begin{verbatim}
+\usepackage{tcolorbox}
+
+\newtcolorbox{mybox}{
+    width=0.9\textwidth,
+    colback=lightgray, % Background color
+    colframe=darkgray, % Frame color
+    coltitle=black, % Color of the title text
+    colupper=red, % Color of the main text
+    colbacktitle=blue % Background color of the title bar
+    arc=3pt, % Rounded corners
+    boxrule=1pt, % Frame thickness
+    boxsep=3pt, % space between text and border
+    left=6pt, % Left padding
+    right=6pt, % Right padding
+    top=6pt, % Top padding
+    bottom=6pt, % Bottom padding
+    title=König's theorem, % Set title (better use like \begin{tcolorbox}[title=...])
+    left title, % or : "center title", or "right title"
+}
+
+\begin{mybox}
+This is some text inside my custom box environment.
+\end{mybox}
+\end{verbatim}
+
+\textbf{Note :} Do not put two carriage return between two arguments (it becomes interpreted as a paragraph end and doen't work anymore)
 
 \section*{New environment}
 
@@ -1505,9 +1512,15 @@ This is a beautiful colored box with rounded corners.
 	\markright{\thesection.\ #1}
 } % This sets \rightmark
 \pagestyle{fancy}
-\fancyhead[LE,RO]{\nouppercase{\rightmark}}
-\fancyhead[LO,RE]{\nouppercase{\leftmark}}
+\fancyhead[LE,RO]{\nouppercase{\rightmark}} % O : for odd pages
+\fancyhead[LO,RE]{\nouppercase{\leftmark}} % E : for even pages
 \end{verbatim}
+
+\textbf{Note :} If \texttt{\textbackslash documentclass[oneside]\{book\}} is set, then the E and O are useless (because there's only one sode)
+
+\textbf{Note : Make sure to deal with \texttt{fancyhdr} AFTER setting the \texttt{geometry} settings !}
+
+Otherwise, some things such as \texttt{\textbackslash setlength\{\textbackslash headheight\}\{15pt\}} don't work.
 
 \subsection*{Algorithms}
 
