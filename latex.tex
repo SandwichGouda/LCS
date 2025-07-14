@@ -1420,6 +1420,29 @@ textbackslash \texttt{\textbackslash-2\textbackslash fboxsep-2\ fboxrule} Comput
 This is a beautiful colored box with rounded corners.
 \end{tcolorbox}
 
+Variant : 
+
+\begin{verbatim}
+\usepackage{tcolorbox}
+
+\newtcolorbox{mybox}{
+    colback=lightgray, % Background color
+    colframe=darkgray, % Frame color
+    arc=3pt, % Rounded corners
+    boxrule=1pt, % Frame thickness
+    left=6pt, % Left padding
+    right=6pt, % Right padding
+    top=6pt, % Top padding
+    bottom=6pt, % Bottom padding
+}
+
+\begin{document}
+
+\begin{mybox}
+This is some text inside my custom box environment.
+\end{mybox}
+\end{verbatim}
+
 \begin{verbatim}
 \usepackage{tcolorbox}
 
@@ -1429,6 +1452,10 @@ This is a beautiful colored box with rounded corners.
 This is a beautiful colored box with rounded corners.
 \end{tcolorbox}
 \end{verbatim}
+
+\section*{New environment}
+
+\texttt{\textbackslash newenvironment\{name\}[number of arguments][default value]\{begin definition\}\{end definition\}}
 
 \section*{Packages}
 
