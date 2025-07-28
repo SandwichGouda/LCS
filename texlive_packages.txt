@@ -1,6 +1,5 @@
 # Insofar installed TeX Live packages
 
-sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install tlnet --usermode
 sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install mathrsfs
 sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install rsfs
 sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install courier

@@ -1476,6 +1476,45 @@ This is some text inside my custom box environment.
 
 \texttt{\textbackslash newenvironment\{name\}[number of arguments][default value]\{begin definition\}\{end definition\}}
 
+\section*{Sections numbering}
+
+\texttt{Chatper.Section.Subsection.Subsubsection} numbering :
+
+\begin{verbatim}
+  \texttt{\renewcommand\thesubsubsection{\thesubsection.\alph{subsubsection})} 
+  % ^ 2.1.4.a)
+  \setcounter{secnumdepth}{3}
+  % ^ Required in the book documentclass, subsubsections are 
+  % unnumbered by default in book documentclass
+\end{verbatim}
+
+\texttt{Subsubsection} numbering :
+
+\begin{verbatim}
+  \texttt{\renewcommand\thesubsubsection{\alph{subsubsection})} 
+  % ^ a)
+  \setcounter{secnumdepth}{3} 
+  % ^ Required in the book documentclass, subsubsections are 
+  % unnumbered by default in book documentclass
+\end{verbatim}
+
+\section*{Table of contents}
+
+\texttt{\textbackslash tableofcontents}, place in \texttt{document} wherever you want you table of contents to be (at the begining, at the end, before/after introduction...)
+
+\textbf{Table of contents numbering depth}
+
+\begin{verbatim}
+\setcounter{tocdepth}{0}
+% ^ In book documentclass : show Parts, chapters
+\setcounter{tocdepth}{1}
+% ^ In book documentclass : show Parts, chapters, sections
+\setcounter{tocdepth}{2}
+% ^ In book documentclass : show Parts, chapters, sections, subsections 
+\setcounter{tocdepth}{3}
+% ^ In book documentclass : show Parts, chapters, sections, subsections, subsubsections
+\end{verbatim}
+
 \section*{Packages}
 
 \subsection*{Espacements}
