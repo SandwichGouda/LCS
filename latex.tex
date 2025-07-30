@@ -1285,8 +1285,7 @@ c & d
 
 \textbf{Note :} The \texttt{~} are non-breaking spaces. This allows for \LaTeX to never break to a newline.
 
-\subsection*{Aligner les équations}
-
+\subsection*{Align equations}
 
 \begin{align*}
 x &= y \\
@@ -1322,6 +1321,35 @@ Use the unstarred version \texttt{\textbackslash begin\{align\}} to number the e
 \end{aligned}
 \right.
 \]
+\end{verbatim}
+
+\subsection*{Multiline equations}
+
+\begin{verbatim}
+  \begin{multline*}
+    long loooooong equation
+  \end{multline*}
+\end{verbatim}
+
+No math mode or equation needed. 
+
+Use starred version if you don't want it to be numbered. 
+
+Remove the star if you want it to be numbered.
+
+Another precision : 
+
+\begin{verbatim}
+  \begin{unnumberredenvironment*}
+  \end{unnumberredenvironment*}
+  // Star at the END 
+
+  \begin*{section}
+  \end*{section}
+
+  \begin*{subsection}
+  \end*{subsection}
+  // Star in the MIDDLE
 \end{verbatim}
 
 \subsection*{Bibliography}
