@@ -27,14 +27,7 @@
 
 \usepackage{tcolorbox}
 
-%%%% PEIGNE FIN TUTO SDZ PR AVOIR TOUT 
-%%%% S gothique (et autres) mathfrak ? (doivent etre inclus dans la table polices maths (A arrongi, L endomorph/laplace tho)
-%%%% tA (transposée) expôsant à gauche ?
-%%%% a° avec un point au dessus comme l'intérieur ? 
-%%%% layout thing ; llbrackets piur ensmeble des entiers ?
-
-
-
+\usepackage{subcaption}
 
 \begin{document}
 
@@ -1687,6 +1680,106 @@ Otherwise, some things such as \texttt{\textbackslash setlength\{\textbackslash 
 
 \chapter*{TikZ}
 
+\section*{Figures}
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \node[circle, draw] at (0,0){};
+        \end{tikzpicture}
+        \caption{First figure}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \node[circle, draw] at (2,0){};
+        \end{tikzpicture}
+        \caption{Second figure}
+    \end{subfigure}
+    \caption{Two TikZ figures side by side}
+\end{figure}
+
+\begin{verbatim}
+  \begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \node[circle, draw] at (0,0){};
+        \end{tikzpicture}
+        \caption{First figure}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \node[circle, draw] at (2,0){};
+        \end{tikzpicture}
+        \caption{Second figure}
+    \end{subfigure}
+    \caption{Two TikZ figures side by side}
+  \end{figure}
+\end{verbatim}
+
+\begin{figure}[h]
+    \centering
+    \captionsetup{labelformat=empty}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \captionsetup{labelformat=empty}
+        \begin{tikzpicture}
+            \node[circle, draw] at (0,0){};
+        \end{tikzpicture}
+        \caption{First figure}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \captionsetup{labelformat=empty}
+        \begin{tikzpicture}
+            \node[circle, draw] at (2,0){};
+        \end{tikzpicture}
+        \caption{Second figure}
+    \end{subfigure}
+    \caption{Two TikZ figures side by side}
+\end{figure}
+
+\begin{verbatim}
+  \begin{figure}[h]
+      \centering
+      \captionsetup{labelformat=empty}
+      \begin{subfigure}[b]{0.45\textwidth}
+          \centering
+          \captionsetup{labelformat=empty}
+          \begin{tikzpicture}
+              \node[circle, draw] at (0,0){};
+          \end{tikzpicture}
+          \caption{First figure}
+      \end{subfigure}
+      \hfill
+      \begin{subfigure}[b]{0.45\textwidth}
+          \centering
+          \captionsetup{labelformat=empty}
+          \begin{tikzpicture}
+              \node[circle, draw] at (2,0){};
+          \end{tikzpicture}
+          \caption{Second figure}
+      \end{subfigure}
+      \caption{Two TikZ figures side by side}
+  \end{figure}
+\end{verbatim}
+
+\textbf{Use} 
+
+\begin{verbatim} 
+  \caption*{\textbf{Figure:} A simple diagram.} 
+\end{verbatim} 
+
+\textbf{to remove the entry from the list of figures.}
+
 \section*{Axis}
 
 \begin{center}
@@ -1736,5 +1829,6 @@ Otherwise, some things such as \texttt{\textbackslash setlength\{\textbackslash 
   \end{tikzpicture}
 \end{center}
 \end{verbatim}
+
 
 \end{document}
