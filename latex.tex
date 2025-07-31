@@ -1681,4 +1681,60 @@ Otherwise, some things such as \texttt{\textbackslash setlength\{\textbackslash 
 \section{Introduction}
 ...
 \end{verbatim}
+
+
+\newpage
+
+\chapter*{TikZ}
+
+\section*{Axis}
+
+\begin{center}
+  \begin{tikzpicture}[x=1cm,y=1cm]
+    
+    \draw[->] (-1,0) -- (4,0)   node[right] {$x$};
+    \draw[->] (0,-1) -- (0,4)   node[above] {$y$};
+
+  \end{tikzpicture}
+\end{center}
+
+\begin{verbatim}
+\begin{center}
+  \begin{tikzpicture}[x=1cm,y=1cm]
+    
+    \draw[->] (-1,0) -- (4,0)   node[right] {$x$};
+    \draw[->] (0,-1) -- (0,4)   node[above] {$y$};
+
+  \end{tikzpicture}
+\end{center}
+\end{verbatim}
+
+\begin{center}
+  \begin{tikzpicture}[x=1cm,y=1cm]
+    
+    \draw[->] (-1,0) -- (4,0)   node[right] {$x$};
+    \draw[->] (0,-1) -- (0,4)   node[above] {$y$};
+
+    \draw (-1,0) -- (4,1) node[anchor=west]{$\ell_1$};
+    \draw (0,0) -- (4,2) node[anchor=west]{$\ell_2$};
+    \draw (1,0) -- (4,3) node[anchor=west]{$\ell_3$};
+    \draw (2,0) -- (4,4) node[anchor=west]{$\ell_4$};
+  \end{tikzpicture}
+\end{center}
+
+\begin{verbatim}
+\begin{center}
+  \begin{tikzpicture}[x=1cm,y=1cm]
+    
+    \draw[->] (-1,0) -- (4,0)   node[right] {$x$};
+    \draw[->] (0,-1) -- (0,4)   node[above] {$y$};
+
+    \draw (-1,0) -- (4,1) node[anchor=west]{$\ell_1$};
+    \draw (0,0) -- (4,2) node[anchor=west]{$\ell_2$};
+    \draw (1,0) -- (4,3) node[anchor=west]{$\ell_3$};
+    \draw (2,0) -- (4,4) node[anchor=west]{$\ell_4$};
+  \end{tikzpicture}
+\end{center}
+\end{verbatim}
+
 \end{document}
