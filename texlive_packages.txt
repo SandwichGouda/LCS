@@ -17,6 +17,7 @@ sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install transparent
 sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install boxedminipage
 sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install needspace
 sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install tcolorbox
+sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install subfigure
 
 
-tlmgr install mathrsfs rsfs courier wasysym wasy polyglossia lipsum boxedminipage algorithm algorithms algpseudocode.sty algorithmicx svg transparent boxedminipage needspace tcolorbox
+tlmgr install mathrsfs rsfs courier wasysym wasy polyglossia lipsum boxedminipage algorithm algorithms algpseudocode.sty algorithmicx svg transparent boxedminipage needspace tcolorbox subfigure
