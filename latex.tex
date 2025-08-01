@@ -25,7 +25,17 @@
 
 \usepackage{url}
 
-\usepackage{tcolorbox}
+\usepackage[most]{tcolorbox}
+\newtcolorbox{mybox}[1][]{
+  enhanced,
+  attach boxed title to top left={yshift=-3mm, yshifttext=-1mm, xshift=0.05\textwidth},
+  colback=white,         % default background (white for most document classes)
+  colframe=black,        % black frame
+  colbacktitle=white,    % white background for title area
+  coltitle=black,        % black text in title
+  fonttitle=\bfseries,   % bold title font
+  title=#1
+}
 
 \usepackage{subcaption}
 
@@ -1447,47 +1457,25 @@ textbackslash \texttt{\textbackslash-2\textbackslash fboxsep-2\ fboxrule} Comput
 
 \subsection*{More fancy boxes}
 
-\tcbset{colframe=red!75!orange, colback=blue!5, boxrule=0.8pt, arc=4pt, outer arc=4pt}
-
-\begin{tcolorbox}
-This is a beautiful colored box with rounded corners.
-\end{tcolorbox}
+\begin{mybox}[Title]
+  Hi mom
+\end{mybox}
 
 \begin{verbatim}
-\usepackage{tcolorbox}
+\usepackage[most]{tcolorbox}
 
-\tcbset{colframe=blue!75!black, colback=blue!5, boxrule=0.8pt, arc=4pt, outer arc=4pt}
-
-\begin{tcolorbox}
-This is a beautiful colored box with rounded corners.
-\end{tcolorbox}
-\end{verbatim}
-
-Reusable version :
-
-\begin{verbatim}
-\usepackage{tcolorbox}
-
-\newtcolorbox{mybox}{
-    width=0.9\textwidth,
-    colback=lightgray, % Background color
-    colframe=darkgray, % Frame color
-    coltitle=black, % Color of the title text
-    colupper=red, % Color of the main text
-    colbacktitle=blue % Background color of the title bar
-    arc=3pt, % Rounded corners
-    boxrule=1pt, % Frame thickness
-    boxsep=3pt, % space between text and border
-    left=6pt, % Left padding
-    right=6pt, % Right padding
-    top=6pt, % Top padding
-    bottom=6pt, % Bottom padding
-    title=König's theorem, % Set title (better use like \begin{tcolorbox}[title=...])
-    left title, % or : "center title", or "right title"
+\newtcolorbox{mybox}[1][]{
+  enhanced,
+  colback=white,         % default background (white for most document classes)
+  colframe=black,        % black frame
+  colbacktitle=white,    % white background for title area
+  coltitle=black,        % black text in title
+  fonttitle=\bfseries,   % bold title font
+  title=#1
 }
 
-\begin{mybox}
-This is some text inside my custom box environment.
+\begin{mybox}[Title]
+  Hi mom
 \end{mybox}
 \end{verbatim}
 
@@ -1833,6 +1821,5 @@ Otherwise, some things such as \texttt{\textbackslash setlength\{\textbackslash 
   \end{tikzpicture}
 \end{center}
 \end{verbatim}
-
 
 \end{document}
