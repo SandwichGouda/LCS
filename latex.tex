@@ -1988,4 +1988,68 @@ Otherwise, some things such as \texttt{\textbackslash setlength\{\textbackslash 
 \end{center}
 \end{verbatim}
 
+\begin{center}
+  \begin{tikzpicture}[x=0.03cm,y=0.015cm]
+
+    \fill[yellow!50] (0,0) -- (100,0) -- (40,240) -- (0,300) -- cycle;
+
+    % Axes
+    \draw[->] (-5,0) -- (220,0) node[below right] {$x$};
+    \draw[->] (0,-5) -- (0,420) node[above left] {$y$};
+
+    \foreach \x/\lab in {40/40,100/100,200/200}{
+      \draw (\x,0) -- (\x,-5) node[below] {\lab};
+    }
+
+    \foreach \y/\lab in {200/200,240/240,400/400}{
+      \draw (0,\y) -- (-5,\y) node[left] {\lab};
+    }
+
+    \draw[thick] (0,400) -- (100,0)
+      node[pos=0.42,above left,sloped] {$40\,x + 10\,y = 4000$};
+
+    \draw[thick] (0,300) -- (200,0)
+      node[pos=0.65,above,sloped] {$30\,x + 20\,y = 6000$};
+
+    \draw[thick,red,yshift=-10,xshift=-10] (0,300) -- (150,0)
+      node[pos=0.75,above,sloped] {$400\,x + 200\,y = \lambda$};
+
+    \fill (40,240) circle [radius=1.2];
+    \draw[densely dotted] (40,0) -- (40,240);
+    \draw[densely dotted] (0,240) -- (40,240);
+  \end{tikzpicture}
+\end{center}
+
+\begin{verbatim}
+  \begin{tikzpicture}[x=0.03cm,y=0.015cm]
+
+    \fill[yellow!50] (0,0) -- (100,0) -- (40,240) -- (0,300) -- cycle;
+
+    % Axes
+    \draw[->] (-5,0) -- (220,0) node[below right] {$x$};
+    \draw[->] (0,-5) -- (0,420) node[above left] {$y$};
+
+    \foreach \x/\lab in {40/40,100/100,200/200}{
+      \draw (\x,0) -- (\x,-5) node[below] {\lab};
+    }
+
+    \foreach \y/\lab in {200/200,240/240,400/400}{
+      \draw (0,\y) -- (-5,\y) node[left] {\lab};
+    }
+
+    \draw[thick] (0,400) -- (100,0)
+      node[pos=0.42,above left,sloped] {$40\,x + 10\,y = 4000$};
+
+    \draw[thick] (0,300) -- (200,0)
+      node[pos=0.65,above,sloped] {$30\,x + 20\,y = 6000$};
+
+    \draw[thick,red,yshift=-10,xshift=-10] (0,300) -- (150,0)
+      node[pos=0.75,above,sloped] {$400\,x + 200\,y = \lambda$};
+
+    \fill (40,240) circle [radius=1.2];
+    \draw[densely dotted] (40,0) -- (40,240);
+    \draw[densely dotted] (0,240) -- (40,240);
+  \end{tikzpicture}
+\end{verbatim}
+
 \end{document}
