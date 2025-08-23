@@ -12,6 +12,8 @@
 \usepackage{stmaryrd}
 \usepackage{esint}
 
+\usepackage{hyperref}
+
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -24,6 +26,11 @@
 \usepackage{accents}
 
 \usepackage{url}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{patterns}
+\usepackage{mathrsfs}
 
 \usepackage[most]{tcolorbox}
 \newtcolorbox{mybox}[1][]{
@@ -1288,42 +1295,70 @@ c & d
 
 \textbf{Note :} The \texttt{\~} are non-breaking spaces. This allows for \LaTeX to never break to a newline.
 
+\subsection*{Number and label equations}
+
+\begin{equation}\label{eq:main-result-ginibre}
+    \mathcal W_{KR} (\mathfrak S^R, \mathfrak S^R_N ) \leqslant \sqrt{\frac 2 \pi } R e^{-c^2} 
+\end{equation}
+
+The equation~\ref{eq:main-result-ginibre} 
+
+The equation~\eqref{eq:main-result-ginibre} 
+
+\begin{verbatim}
+  \usepackage{hyperref}
+
+  \begin{equation}\label{eq:main-result-ginibre}
+    \mathcal W_{KR} (\mathfrak S^R, \mathfrak S^R_N ) \leqslant \sqrt{\frac 2 \pi } R e^{-c^2} 
+  \end{equation}
+
+  The equation~\ref{eq:main-result-ginibre} 
+
+  The equation~\eqref{eq:main-result-ginibre} 
+\end{verbatim}
+
+Just import \texttt{hyperref} to get 
+
 \subsection*{Align equations}
 
 \begin{align*}
-x &= y \\
-y &\leqslant z
+  x &= y \\
+  y &\leqslant z
 \end{align*}
 
 \begin{verbatim}
-\begin{align*}
-x &= y \\
-y &\leqslant z
-\end{align*}
+  \begin{align*}
+    x &= y \\
+    y &\leqslant z
+  \end{align*}
 \end{verbatim}
 
 Use the unstarred version \texttt{\textbackslash begin\{align\}} to number the equation.
 
+\texttt{align} is used without math equations. It's a substitute (or another version) for math equations.
+
+\texttt{aligned} is a version to be used inside math equations.
+
 \[
 \forall n \in \mathbf N, 
 \left\{
-\begin{aligned}
+  \begin{aligned}
     a_{n+1} &\in (b_n, 1) \\
     b_{n+1} &= \sqrt{ \frac{a_{n+1}^2 + u_n(1-a_{n+1}^2)}{a_{n+1}^2 + (1+u_n)(1-a_{n+1}^2)} }
-\end{aligned}
+  \end{aligned}
 \right.
 \]
 
 \begin{verbatim}
 \[
-\forall n \in \mathbf N, 
-\left\{
-\begin{aligned}
-    a_{n+1} &\in (b_n, 1) \\
-    b_{n+1} &= \sqrt{ \frac{a_{n+1}^2 + u_n(1-a_{n+1}^2)}{a_{n+1}^2 + (1+u_n)(1-a_{n+1}^2)} }
-\end{aligned}
-\right.
-\]
+  \forall n \in \mathbf N, 
+  \left\{
+    \begin{aligned}
+      a_{n+1} &\in (b_n, 1) \\
+      b_{n+1} &= \sqrt{ \frac{a_{n+1}^2 + u_n(1-a_{n+1}^2)}{a_{n+1}^2 + (1+u_n)(1-a_{n+1}^2)} }
+    \end{aligned}
+  \right.
+  \]
 \end{verbatim}
 
 \subsection*{Multiline equations}
@@ -1820,6 +1855,136 @@ Otherwise, some things such as \texttt{\textbackslash setlength\{\textbackslash 
     \draw (1,0) -- (4,3) node[anchor=west]{$\ell_3$};
     \draw (2,0) -- (4,4) node[anchor=west]{$\ell_4$};
   \end{tikzpicture}
+\end{center}
+\end{verbatim}
+
+\begin{center}
+  \begin{tikzpicture}
+    \begin{axis}[
+      x=1.0cm,y=1.0cm,
+      axis lines=middle,
+      xmajorgrids=true,
+      ymajorgrids=true,
+      xmin=-1.0,
+      xmax=2.0,
+      ymin=-1.0,
+      ymax=2.0,
+      xtick={-1.0,0.0,...,2.0},
+      ytick={-1.0,0.0,...,2.0},
+    ]
+      \clip(-1.0,-1.0) rectangle (2.0,2.0);
+      \fill[line width=4.pt,color=red,fill=red,pattern=north east lines,pattern color=red] (0.,0.) -- (0.,1.) -- (1.,1.) -- (1.,0.) -- cycle;
+    \end{axis}
+  \end{tikzpicture}
+\end{center}
+
+\begin{verbatim}
+\begin{center}
+  \begin{tikzpicture}
+    \begin{axis}[
+      x=1.0cm,y=1.0cm,
+      axis lines=middle,
+      xmajorgrids=true,
+      ymajorgrids=true,
+      xmin=-1.0,
+      xmax=2.0,
+      ymin=-1.0,
+      ymax=2.0,
+      xtick={-1.0,0.0,...,2.0},
+      ytick={-1.0,0.0,...,2.0},
+    ]
+      \clip(-1.0,-1.0) rectangle (2.0,2.0);
+      \fill[line width=4.pt,color=red,fill=red,pattern=north east lines,pattern color=red] (0.,0.) -- (0.,1.) -- (1.,1.) -- (1.,0.) -- cycle;
+    \end{axis}
+  \end{tikzpicture}
+\end{center}
+\end{verbatim}
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            x=0.3cm,y=0.3cm,
+            axis lines=middle,
+            xmin=-4.0,
+            xmax=40.0,
+            ymin=-3.0,
+            ymax=23.0,
+            xtick={-4.0,-2.0,...,40.0},
+            ytick={-2.0,0.0,...,22.0},
+        ]
+            \clip(-4.,-3.) rectangle (40.,23.);
+            \fill[line width=8.pt,color=red,fill=red,pattern=north east lines,pattern color=red] (3.,10.) -- (5.,14.) -- (12.,14.) -- (16.,11.) -- (9.,4.) -- cycle;
+            \draw [line width=1.pt,domain=-12.:40.] plot(\x,{(--13.-1.*\x)/1.});
+            \draw [line width=1.pt,domain=-12.:40.] plot(\x,{(--5.-1.*\x)/-1.});
+            \draw [line width=1.pt,domain=-12.:40.] plot(\x,{(--4.--2.*\x)/1.});
+            \draw [line width=1.pt,domain=-12.:40.] plot(\x,{(--92.-3.*\x)/4.});
+            \draw [line width=1.pt,domain=-12.:40.] plot(\x,{(--14.-0.*\x)/1.});
+            \begin{scriptsize}
+                \draw [fill=black] (-1.,14.) circle (2.5pt);
+                \draw [fill=black] (3.,10.) circle (2.5pt);
+                \draw [fill=black] (5.,14.) circle (2.5pt);
+                \draw [fill=black] (6.909090909090909,17.818181818181817) circle (2.5pt);
+                \draw [fill=black] (12.,14.) circle (2.5pt);
+                \draw [fill=black] (19.,14.) circle (2.5pt);
+                \draw [fill=black] (16.,11.) circle (2.5pt);
+                \draw [fill=black] (9.,4.) circle (2.5pt);
+                \draw [fill=black] (-2.,0.) circle (2.5pt);
+                \draw [fill=black] (-2.,0.) circle (2.5pt);
+                \draw [fill=black] (0.,0.) circle (2.5pt);
+                \draw [fill=black] (0.,4.) circle (2.5pt);
+                \draw [fill=black] (5.,0.) circle (2.5pt);
+                \draw [fill=black] (13.,0.) circle (2.5pt);
+                \draw [fill=black] (30.666666666666668,0.) circle (2.5pt);
+            \end{scriptsize}
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+\begin{verbatim}
+  \begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            x=0.3cm,y=0.3cm,
+            axis lines=middle,
+            xmin=-4.0,
+            xmax=40.0,
+            ymin=-3.0,
+            ymax=23.0,
+            xtick={-4.0,-2.0,...,40.0},
+            ytick={-2.0,0.0,...,22.0},
+        ]
+            \clip(-4.,-3.) rectangle (40.,23.);
+            \fill[
+              line width=8.pt,
+              color=red,
+              fill=red,
+              pattern=north east lines,
+              pattern color=red
+            ] (3.,10.) -- (5.,14.) -- (12.,14.) -- (16.,11.) -- (9.,4.) -- cycle;
+            \draw [line width=1.pt,domain=-12.:40.] plot(\x,{(--13.-1.*\x)/1.});
+            \draw [line width=1.pt,domain=-12.:40.] plot(\x,{(--5.-1.*\x)/-1.});
+            \draw [line width=1.pt,domain=-12.:40.] plot(\x,{(--4.--2.*\x)/1.});
+            \draw [line width=1.pt,domain=-12.:40.] plot(\x,{(--92.-3.*\x)/4.});
+            \draw [line width=1.pt,domain=-12.:40.] plot(\x,{(--14.-0.*\x)/1.});
+            \begin{scriptsize}
+                \draw [fill=black] (-1.,14.) circle (2.5pt);
+                \draw [fill=black] (3.,10.) circle (2.5pt);
+                \draw [fill=black] (5.,14.) circle (2.5pt);
+                \draw [fill=black] (6.909090909090909,17.818181818181817) circle (2.5pt);
+                \draw [fill=black] (12.,14.) circle (2.5pt);
+                \draw [fill=black] (19.,14.) circle (2.5pt);
+                \draw [fill=black] (16.,11.) circle (2.5pt);
+                \draw [fill=black] (9.,4.) circle (2.5pt);
+                \draw [fill=black] (-2.,0.) circle (2.5pt);
+                \draw [fill=black] (-2.,0.) circle (2.5pt);
+                \draw [fill=black] (0.,0.) circle (2.5pt);
+                \draw [fill=black] (0.,4.) circle (2.5pt);
+                \draw [fill=black] (5.,0.) circle (2.5pt);
+                \draw [fill=black] (13.,0.) circle (2.5pt);
+                \draw [fill=black] (30.666666666666668,0.) circle (2.5pt);
+            \end{scriptsize}
+        \end{axis}
+    \end{tikzpicture}
 \end{center}
 \end{verbatim}
 

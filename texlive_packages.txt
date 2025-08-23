@@ -1,25 +1,26 @@
 # Insofar installed TeX Live packages
 
-sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install mathrsfs
-sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install rsfs
-sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install courier
-sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install wasysym
-sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install wasy
-sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install polyglossia
-sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install lipsum
-sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install boxedminipage
-sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install algorithm
-sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install algorithms
-sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install algpseudocode.sty
-sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install algorithmicx
-sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install svg
-sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install transparent
-sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install boxedminipage
-sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install needspace
-sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install tcolorbox
-sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install tikzfill
-sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install listingsutf8
+sudo "$(command -v tlmgr)" install mathrsfs
+sudo "$(command -v tlmgr)" install rsfs
+sudo "$(command -v tlmgr)" install courier
+sudo "$(command -v tlmgr)" install wasysym
+sudo "$(command -v tlmgr)" install wasy
+sudo "$(command -v tlmgr)" install polyglossia
+sudo "$(command -v tlmgr)" install lipsum
+sudo "$(command -v tlmgr)" install boxedminipage
+sudo "$(command -v tlmgr)" install algorithm
+sudo "$(command -v tlmgr)" install algorithms
+sudo "$(command -v tlmgr)" install algpseudocode.sty
+sudo "$(command -v tlmgr)" install algorithmicx
+sudo "$(command -v tlmgr)" install svg
+sudo "$(command -v tlmgr)" install transparent
+sudo "$(command -v tlmgr)" install boxedminipage
+sudo "$(command -v tlmgr)" install needspace
+sudo "$(command -v tlmgr)" install tcolorbox
+sudo "$(command -v tlmgr)" install tikzfill
+sudo "$(command -v tlmgr)" install listingsutf8
+sudo "$(command -v tlmgr)" install pgfplots
 
-// sudo /usr/local/texlive/2025/bin/x86_64-linux/tlmgr install subfigure // deprecated, use \usepackage{subcaption} instead
+// sudo "$(command -v tlmgr)" install subfigure // deprecated, use \usepackage{subcaption} instead
 
-tlmgr install mathrsfs rsfs courier wasysym wasy polyglossia lipsum boxedminipage algorithm algorithms algpseudocode.sty algorithmicx svg transparent boxedminipage needspace tcolorbox tikzfill listingsutf8
+tlmgr install mathrsfs rsfs courier wasysym wasy polyglossia lipsum boxedminipage algorithm algorithms algpseudocode.sty algorithmicx svg transparent boxedminipage needspace tcolorbox tikzfill listingsutf8 pgfplots
