@@ -1702,6 +1702,45 @@ Otherwise, some things such as \texttt{\textbackslash setlength\{\textbackslash 
 
 \newpage
 
+\section*{Letters}
+
+\begin{verbatim}
+
+\documentclass[a4paper,12pt]{letter}
+
+% Set sender information
+\signature{Your Name}
+\address{123 Main Street \\ City, Country \\ Email: you@example.com}
+
+% Date format (optional, otherwise today's date will be used)
+\date{\today}
+
+\begin{document}
+
+% Recipient information
+\begin{letter}{Recipient Name \\ Company/Organization \\ Address Line 1 \\ Address Line 2}
+
+% Greeting
+\opening{Dear Recipient,}
+
+This is the body of your letter. You can write multiple paragraphs here.
+You can include formulas (e.g., $E=mc^2$), lists, or any other LaTeX formatting as needed.
+
+\closing{Sincerely,}
+
+% Optional postscript
+\ps{P.S. Here’s a short note.}
+
+% Optional enclosures
+\encl{CV \\ Reference Letters}
+
+\end{letter}
+\end{document}
+
+\end{verbatim}
+
+\newpage
+
 \chapter*{TikZ}
 
 \section*{Figures}
